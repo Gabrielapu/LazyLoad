@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "lazyLoad"
+    }
+  },
+  "defaultProject": "lazyLoad",
+  "cli": {
+    "analytics": false
+  }
 }

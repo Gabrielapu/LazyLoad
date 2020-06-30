@@ -1,0 +1,34 @@
+<div class="container mt-5">
+  <accordion [isAnimated]="true">
+    <accordion-group heading="Filtros" [isOpen]="true">
+      <app-filtro (filtroEmit)="filtrar($event)"></app-filtro>
+    </accordion-group>
+    <accordion-group heading="Tabla de Datos" [isOpen]="true">
+      <app-add (addEmitter)="agregar($event)"></app-add>
+      <div class="container mt-4">
+        <div *ngIf="error" class="alert alert-warning" role="alert">
+          {{ error }}
+        </div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Nombres</th>
+              <th scope="col">Opciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let nombre of nombresCopy; let i = index">
+              <td>{{ nombre }}</td>
+              <td>
+                <app-edit (editEmitter)="editar($event, i)" [name]="nombre">
+                </app-edit>
+
+                <app-delete (deleteEmitter)="borrar(i)"></app-delete>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </accordion-group>
+  </accordion>
+</div>

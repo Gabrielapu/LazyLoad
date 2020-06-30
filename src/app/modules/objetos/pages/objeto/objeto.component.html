@@ -1,0 +1,37 @@
+<div class="container mt-4">
+  
+  <app-add (addEmit)=agregar($event) ></app-add>
+  <div *ngIf="gay" class="alert alert-warning" role="alert">
+    {{gay}}
+  </div>
+  <div *ngIf="error" class="alert alert-warning" role="alert">
+    {{error}}
+  </div>
+  <div *ngIf="aviso" class="alert alert-warning" role="alert">
+    {{aviso}}
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col"> Nombre </th>
+        <th scope="col"> Genero </th>
+        <th scope="col"> Opciones </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let persona of personas; let i = index">
+        <td>{{persona.nombre}}</td>
+        <td>{{persona.genero}}</td>
+        <td>
+          <app-edit [persona]="persona" (editEmitter)="editar($event,i)"></app-edit>
+          <app-delete (deleteEmitter)="borrar(i)"></app-delete>
+        </td>
+      </tr>
+      <div class="btn-group mt-3" role="group" aria-label="Basic example">
+        <button (click)="borrarMachos()" type="button" class="btn btn-secondary">Eliminar masculinos </button>
+      </div>
+    </tbody>
+  </table>
+  
+
+</div>

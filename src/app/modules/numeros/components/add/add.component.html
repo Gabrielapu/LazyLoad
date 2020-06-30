@@ -1,0 +1,19 @@
+<form class="form-inline" [formGroup]="formAdd" (submit)="onSubmit()">
+  <div class="form-group mb-2">
+    <label class="label">Ingrese un número</label>
+  </div>
+  <div class="form-group mx-sm-3 mb-2">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="numero"
+      formControlName="numero"
+    />
+  </div>
+  <div class="form-group mb-2">
+    <button type="submit" class="btn btn-primary mx-1">Agregar</button>
+  </div>
+  <div class="form-group mx-sm-3 mb-2">
+    <label class="label">Total: {{ total }}</label>
+  </div>
+</form>
